@@ -46,7 +46,7 @@ class HyperFunction:
                 criteria = instance.default
                 if not isinstance(criteria, info.CriteriaInfo):
                     raise TypeError(
-                        f"Parameters of registered functions must be initialized with `criteria` method."
+                        "Parameters of registered functions must be initialized with `criteria` method."
                     )
 
                 default, annotation = criteria.default, instance.annotation
@@ -66,7 +66,7 @@ class HyperFunction:
                 parameter_map = {"type": "object", "properties": properties}
             if required:
                 parameter_map['required'] = required
-                
+
             yield {'name': f_name, 'description': f_info.description} | {'parameters': parameter_map}
 
     def attach_hyperfunction(self, __obj: "HyperFunction"):
